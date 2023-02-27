@@ -3,7 +3,7 @@ import customFetch from '../../Utils/axios'
 export const getAllInvoicesThunk = async (_, thunkAPI) => {
     const {filterState} = thunkAPI.getState().allInvoices;
 
-    let url = `/invoices?filter=${filterState}`;
+    let url = `/invoices`;
     try {
         const resp = await customFetch.get(url);
         return resp.data;
