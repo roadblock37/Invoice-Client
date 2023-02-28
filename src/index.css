@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 
+==================
+color variables
+==================
+*/
+
+:root {
+  /* 
+  #9277FF
+  
+  
+  
+  #9277FF
+  
+  #252945
+  
+  
+  
+  #141625 */
+
+  --mainBackground: #F8F8FB;
+  --tileBackground: #FFFFFF;
+  --primaryText: #0C0E16;
+  --secondaryText: #7E88C3;
+  --ternaryText: #888EB0;
+  --btnBackground: #7C5DFA;
+  --navBackground: #373B53;
+  --deleteBtnBackground: #EC5757;
+  --amountBackground: #373B53;
+  --inputBorder: #7E88C3;
+  --inputRadius: 0.25rem;
+  --invoiceRadius: 0.5rem;
+
+
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+[data-theme = 'dark'] {
+  --mainBackground: #1E2139;
+  --tileBackground: #373B53;
+  --primaryText: #FFF;
+  --secondaryText: #DFE3FA;
+  --ternaryText: #7E88C3;
+  --btnBackground: #7C5DFA;
+  --navBackground: #373B53;
+  --deleteBtnBackground: #EC5757;
+  --amountBackground: #0C0E16;
+  --inputBorder: #373B53;
+  --error: #EC5757;
+  --inputRadius: 0.25rem;
+  --invoiceRadius: 0.5rem;
+
+
+
 }
