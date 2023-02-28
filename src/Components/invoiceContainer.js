@@ -14,16 +14,16 @@ const InvoiceContainer = () => {
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
-   else if (isSuccess) {
-    return console.log(typeof(invoices))
-  } 
+//    else if (isSuccess) {
+//     return console.log(invoices)
+//   } 
   else if (isError) {
     return <div>{error.toString()}</div>;
   }
 
   return (
     <section>
-      {invoices.map((invoice) => {
+      {invoices.allInvoices.map((invoice) => {
         return <Invoice key={invoice._id} {...invoice}/>
       })}
     </section>
