@@ -1,46 +1,33 @@
 import Invoice from "./invoice";
-import {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {getAllInvoices} from '../Features/AllInvoices/allInvoiceSlice';
+import { useGetInvoicesQuery } from "../Features/API/apiSlice";
 
 const InvoiceContainer = () => {
-    const {isLoading, invoices, totalInvoices} = useSelector((store) => store.allInvoices);
-    const dispatch = useDispatch();
+  const {
+    data: invoices,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetInvoicesQuery();
 
-    // fetch all invoices from server on page render
-    // fetch data again if a filter is selected
-    useEffect(() => {
-        dispatch(getAllInvoices());
-        console.log(invoices);
-        
-    }, []);
+//   let content;
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+   else if (isSuccess) {
+    return console.log(typeof(invoices))
+  } 
+  else if (isError) {
+    return <div>{error.toString()}</div>;
+  }
 
-    // TODO create Loading component
-
-    // if (isLoading) {
-    //     return <Loading/>;
-    // }
-
-    // TODO create empty invoice component
-    // if (invoices.length === 0) {
-    //     return (
-    //         <h1>NO invoices to display...</h1>
-    //     );
-    // }
-
-    
-    return (
-        <div>
-
-        <h5> {totalInvoices} invoice found</h5>
-        <section className="invoiceContainer">
-            {/* {invoices.map((item) => {
-                return <Invoice key={item._id} {...item}/>
-            })} */}
-            <Invoice/>
-        </section>
-        </div>
-    );
-}
+  return (
+    <section>
+      {invoices.map((invoice) => {
+        return <Invoice key={invoice._id} {...invoice}/>
+      })}
+    </section>
+  );
+};
 
 export default InvoiceContainer;

@@ -10,11 +10,11 @@ const initialState = {
     isLoading: true,
     invoices: [],
     totalInvoices: 0,
-    ...initialFilterState
+    // ...initialFilterState
 
 }
 
-export const getAllInvoices = createAsyncThunk('allInvoices/getInvoices', getAllInvoicesThunk);
+// export const getAllInvoices = createAsyncThunk('allInvoices/getInvoices', getAllInvoicesThunk);
 
 const allInvoicesSlice = createSlice({
     name: 'allInvoices',
@@ -24,20 +24,20 @@ const allInvoicesSlice = createSlice({
         hideLoading: (state) => {state.isLoading = false},
 
     },
-    extraReducers: {
-        [getAllInvoices.pending]: (state) => {state.isLoading = true},
+    // extraReducers: {
+    //     [getAllInvoices.pending]: (state) => {state.isLoading = true},
 
-        [getAllInvoices.fulfilled]: (state, {payload}) => {
-            state.isLoading = false;
-            state.invoices = payload.invoices;
-            state.totalInvoices = payload.totalInvoices;
-        },
+    //     [getAllInvoices.fulfilled]: (state, {payload}) => {
+    //         state.isLoading = false;
+    //         state.invoices = payload.invoices;
+    //         state.totalInvoices = payload.totalInvoices;
+    //     },
 
-        [getAllInvoices.rejected]: (state, {payload}) => {
-            state.isLoading = false;
-            console.log(payload);
-        },
-    }
+    //     [getAllInvoices.rejected]: (state, {payload}) => {
+    //         state.isLoading = false;
+    //         console.log(payload);
+    //     },
+    // }
 });
 
 export const {showLoading, hideLoading} = allInvoicesSlice.actions;
