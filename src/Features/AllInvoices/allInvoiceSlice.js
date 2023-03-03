@@ -11,7 +11,7 @@ const initialState = {
     invoices: [],
     totalInvoices: 0,
     theme: 'light',
-    // ...initialFilterState
+    ...initialFilterState
 
 }
 
