@@ -4,6 +4,7 @@ color variables
 ==================
 */
 
+/* light theme */
 :root {
   /* 
   #9277FF
@@ -35,6 +36,7 @@ color variables
 
 }
 
+/* dark theme */
 [data-theme = 'dark'] {
   --mainBackground: #1E2139;
   --tileBackground: #373B53;
@@ -53,3 +55,53 @@ color variables
 
 
 }
+
+
+/* 
+===========
+Navbar
+===========
+*/
+
+/* navbar component  */
+.navbar {
+  background-color: var(--navBackground);
+  width: 100%;
+  height: 4.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* theme toggle button */
+.themeToggle {
+  border-style: none;
+  background-color: var(--navBackground);
+}
+
+.themeToggle:hover {
+  cursor: pointer;
+}
+
+/* container with avatar and theme toggle button */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 2rem;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.divider {
+  height: 4.5rem;
+  border-left-color: var(--ternaryText);
+  border-left-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+}
+
