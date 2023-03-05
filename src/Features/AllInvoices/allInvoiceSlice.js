@@ -1,45 +1,42 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import { getAllInvoicesThunk } from './allInvoicesThunk';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { getAllInvoicesThunk } from "./allInvoicesThunk";
 
 const initialFilterState = {
-    filterState: '',
-    filterOptions: ['pending', 'paid', 'draft']
+  filterState: "",
+  filterOptions: ["pending", "paid", "draft"],
 };
 
 const initialState = {
-    isLoading: true,
-    invoices: [],
-    totalInvoices: 0,
-    theme: 'light',
-    ...initialFilterState
-
-}
+  isLoading: true,
+  invoices: [],
+  totalInvoices: 0,
+  theme: true,
+  ...initialFilterState,
+};
 
 // export const getAllInvoices = createAsyncThunk('allInvoices/getInvoices', getAllInvoicesThunk);
 
 const allInvoicesSlice = createSlice({
-    name: 'allInvoices',
-    initialState,
-    reducers: {
-        showLoading: (state) => {state.isLoading = true},
-        hideLoading: (state) => {state.isLoading = false},
-
+  name: "allInvoices",
+  initialState,
+  reducers: {
+    showLoading: (state) => {
+      state.isLoading = true;
     },
-    // extraReducers: {
-    //     [getAllInvoices.pending]: (state) => {state.isLoading = true},
-
-    //     [getAllInvoices.fulfilled]: (state, {payload}) => {
-    //         state.isLoading = false;
-    //         state.invoices = payload.invoices;
-    //         state.totalInvoices = payload.totalInvoices;
-    //     },
-
-    //     [getAllInvoices.rejected]: (state, {payload}) => {
-    //         state.isLoading = false;
-    //         console.log(payload);
-    //     },
-    // }
+    hideLoading: (state) => {
+      state.isLoading = false;
+    },
+    toggleTheme: (state) => {
+      return {
+        ...state,
+        theme: !state.theme,
+      };
+      //   console.log("toggleTheme fired!");
+      //   console.log(state.theme);
+    },
+  },
 });
 
-export const {showLoading, hideLoading} = allInvoicesSlice.actions;
+export const { showLoading, hideLoading, toggleTheme } =
+  allInvoicesSlice.actions;
 export default allInvoicesSlice.reducer;
