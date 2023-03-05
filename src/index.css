@@ -56,6 +56,14 @@ color variables
 
 }
 
+/* 
+=================
+universal styling
+=================
+*/
+
+
+
 
 /* 
 ===========
@@ -105,3 +113,12 @@ Navbar
   margin-left: 2rem;
 }
 
+/* 
+============
+Invoice
+============
+*/
+
+.invoice-container {
+  background-color: var(--mainBackground);
+}

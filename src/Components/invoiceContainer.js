@@ -22,7 +22,7 @@ const InvoiceContainer = () => {
   }
 
   return (
-    <section>
+    <section className="invoice-container">
       {invoices.allInvoices.map((invoice) => {
         return <Invoice key={invoice._id} {...invoice}/>
       })}
