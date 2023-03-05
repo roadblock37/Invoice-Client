@@ -65,6 +65,7 @@ universal styling
 
 
 
+
 /* 
 ===========
 Navbar
@@ -99,11 +100,13 @@ Navbar
   margin-right: 2rem;
 }
 
+/* picture of user */
 .avatar {
   border-radius: 50%;
   margin-left: 2rem;
 }
 
+/* vertical bar in between the toggle icon and avatar */
 .divider {
   height: 4.5rem;
   border-left-color: var(--ternaryText);
@@ -120,6 +123,26 @@ Invoice
 ============
 */
 
+/* invoice container for all invoices */
 .invoice-container {
   background-color: var(--mainBackground);
+  display: grid;
+  padding: 2rem;
+  row-gap: 1rem;
 }
+
+/* invoive tile */
+.invoice {
+  padding: 2rem;
+  background-color: var(--tileBackground);
+  border-radius: var(--invoiceRadius);
+}
+
+.invoice h2 {
+  color: var(--primaryText);
+}
+
+.invoice h5 {
+  color: var(--secondaryText);
+}
+
