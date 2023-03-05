@@ -1,11 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllInvoicesThunk } from "./allInvoicesThunk";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllInvoicesThunk } from "./allInvoicesThunk";
+import { createSlice} from "@reduxjs/toolkit";
 
 const initialFilterState = {
-  filterState: "",
-  filterOptions: ["pending", "paid", "draft"],
   filterState: "",
   filterOptions: ["pending", "paid", "draft"],
 };
