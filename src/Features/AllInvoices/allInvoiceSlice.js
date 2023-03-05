@@ -1,45 +1,48 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import { getAllInvoicesThunk } from './allInvoicesThunk';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { getAllInvoicesThunk } from "./allInvoicesThunk";
 
 const initialFilterState = {
-    filterState: '',
-    filterOptions: ['pending', 'paid', 'draft']
+  filterState: "",
+  filterOptions: ["pending", "paid", "draft"],
 };
 
 const initialState = {
-    isLoading: true,
-    invoices: [],
-    totalInvoices: 0,
-    theme: 'light',
-    ...initialFilterState
-
-}
-
-// export const getAllInvoices = createAsyncThunk('allInvoices/getInvoices', getAllInvoicesThunk);
+  isLoading: true,
+  invoices: [],
+  totalInvoices: 0,
+  theme: "light",
+  ...initialFilterState,
+};
 
 const allInvoicesSlice = createSlice({
-    name: 'allInvoices',
-    initialState,
-    reducers: {
-        showLoading: (state) => {state.isLoading = true},
-        hideLoading: (state) => {state.isLoading = false},
-
+  name: "allInvoices",
+  initialState,
+  reducers: {
+    showLoading: (state) => {
+      state.isLoading = true;
     },
-    // extraReducers: {
-    //     [getAllInvoices.pending]: (state) => {state.isLoading = true},
-
-    //     [getAllInvoices.fulfilled]: (state, {payload}) => {
-    //         state.isLoading = false;
-    //         state.invoices = payload.invoices;
-    //         state.totalInvoices = payload.totalInvoices;
-    //     },
-
-    //     [getAllInvoices.rejected]: (state, {payload}) => {
-    //         state.isLoading = false;
-    //         console.log(payload);
-    //     },
-    // }
+    hideLoading: (state) => {
+      state.isLoading = false;
+    },
+    toggleDark: (state) => {
+        if(state.theme === "light"){
+            return {
+                ...state,
+                theme: 'dark'
+            }
+        }
+    },
+    toggleLight: (state) => {
+        if(state.theme === "dark"){
+            return {
+                ...state,
+                theme: 'light'
+            }
+        }
+    }
+  },
 });
 
-export const {showLoading, hideLoading} = allInvoicesSlice.actions;
+export const { showLoading, hideLoading, toggleLight, toggleDark } =
+  allInvoicesSlice.actions;
 export default allInvoicesSlice.reducer;

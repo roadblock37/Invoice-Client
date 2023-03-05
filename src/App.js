@@ -3,9 +3,9 @@ import InvoiceContainer from "./Components/invoiceContainer";
 import Navbar from "./Components/navbar";
 
 function App() {
-  const { theme } = useSelector((store) => store.allInvoices);
+  const themeState = useSelector((state) => state.allInvoices.theme);
   return (
-    <div className="App" data-theme={theme}>
+    <div className="App" data-theme={themeState}>
       <Navbar />
       <InvoiceContainer />
     </div>
