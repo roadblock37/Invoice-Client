@@ -11,15 +11,15 @@ const InvoiceContainer = () => {
     error,
   } = useGetInvoicesQuery();
 
-  //   let content;
   if (isLoading) {
     return <h1>Loading...</h1>;
-  } else if (invoices.length === 0) {
+  } else if (invoices.allInvoices.length === 0) {
     return <Empty />;
   } else if (isError) {
     return <div>{error.toString()}</div>;
   }
 
+  // default return all invoices
   return (
     <section className="invoice-container">
       {invoices.allInvoices.map((invoice) => {
