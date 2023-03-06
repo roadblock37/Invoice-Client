@@ -1,5 +1,6 @@
 import Invoice from "./invoice";
 import { useGetInvoicesQuery } from "../Features/API/apiSlice";
+import Empty from "./empty";
 
 const InvoiceContainer = () => {
   const {
@@ -10,24 +11,20 @@ const InvoiceContainer = () => {
     error,
   } = useGetInvoicesQuery();
 
-//   let content;
+  //   let content;
   if (isLoading) {
     return <h1>Loading...</h1>;
-  }
-//    else if (isSuccess) {
-//     return console.log(invoices)
-//   } 
-  else if (isError) {
+  } else if (isSuccess) {
+    <section className="invoice-container">
+      {invoices.allInvoices.map((invoice) => {
+        return <Invoice key={invoice._id} {...invoice} />;
+      })}
+    </section>;
+  } else if (isError) {
     return <div>{error.toString()}</div>;
   }
 
-  return (
-    <section className="invoice-container">
-      {invoices.allInvoices.map((invoice) => {
-        return <Invoice key={invoice._id} {...invoice}/>
-      })}
-    </section>
-  );
+  return <Empty />;
 };
 
 export default InvoiceContainer;

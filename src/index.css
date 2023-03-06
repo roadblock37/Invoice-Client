@@ -62,7 +62,9 @@ universal styling
 =================
 */
 
-
+.App {
+  background-color: var(--mainBackground);
+}
 
 
 
@@ -82,7 +84,7 @@ Navbar
   align-items: center;
 }
 
-/* theme toggle button */
+/* theme toggle button*/
 .themeToggle {
   border-style: none;
   background-color: var(--navBackground);
@@ -146,11 +148,13 @@ Invoice
   color: var(--secondaryText);
 }
 
+/* flex container holding invoice ID and customer name  */
 .id-container {
   display: flex;
   justify-content: space-between;
 }
 
+/* flex container holding payment container and status component */
 .payment-container {
   display: flex;
   justify-content: space-between;
@@ -159,9 +163,34 @@ Invoice
   align-self: center;
 }
 
+/* flex container holding due date and total amount */
 .payment {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
 
+/* 
+================
+Empty Component
+================
+*/
+
+/* flex container holding text and image for component */
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10% 35% 0;
+  color: var(--primaryText);
+
+}
+
+.empty-container p {
+  margin: 0;
+}
+
+.empty-container h1 {
+  margin-bottom: 1rem;
+}
