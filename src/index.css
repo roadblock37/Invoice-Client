@@ -146,3 +146,22 @@ Invoice
   color: var(--secondaryText);
 }
 
+.id-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-container {
+  display: flex;
+  justify-content: space-between;
+}
+.payment-container h5 {
+  align-self: center;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
