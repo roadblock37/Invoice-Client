@@ -171,6 +171,36 @@ Invoice
 }
 
 /* 
+=======================
+View invoice component
+=======================
+*/
+
+/* main container holding invoice information */
+.view-container {
+  padding: 2rem;
+}
+
+/* flex container holding the invoice status */
+.status-container {
+  display: flex;
+justify-content: space-between;
+padding: 2rem;
+}
+
+/* container holding invoice information */
+.invoice-info-container {
+  padding: 2rem;
+}
+
+/* container holding edit delete and change status buttons */
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+/* 
 ================
 Empty Component
 ================

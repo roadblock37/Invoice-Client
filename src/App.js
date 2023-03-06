@@ -1,15 +1,17 @@
 import { useSelector } from "react-redux";
-import Empty from "./Components/empty";
-import InvoiceContainer from "./Components/invoiceContainer";
-import Navbar from "./Components/navbar";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Empty from "./Components/empty";
+// import InvoiceContainer from "./Components/invoiceContainer";
+// import Navbar from "./Components/navbar";
+import { SharedLayout, AllInvoices } from "./Pages";
 function App() {
   const themeState = useSelector((state) => state.allInvoices.theme);
   return (
-    <div className="App" data-theme={themeState}>
-      <Navbar />
-      <InvoiceContainer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
