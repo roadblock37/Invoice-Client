@@ -14,17 +14,19 @@ const InvoiceContainer = () => {
   //   let content;
   if (isLoading) {
     return <h1>Loading...</h1>;
-  } else if (isSuccess) {
-    <section className="invoice-container">
-      {invoices.allInvoices.map((invoice) => {
-        return <Invoice key={invoice._id} {...invoice} />;
-      })}
-    </section>;
+  } else if (invoices.length === 0) {
+    return <Empty />;
   } else if (isError) {
     return <div>{error.toString()}</div>;
   }
 
-  return <Empty />;
+  return (
+    <section className="invoice-container">
+      {invoices.allInvoices.map((invoice) => {
+        return <Invoice key={invoice._id} {...invoice} />;
+      })}
+    </section>
+  );
 };
 
 export default InvoiceContainer;
