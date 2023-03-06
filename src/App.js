@@ -9,7 +9,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SharedLayout />}></Route>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<AllInvoices />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
