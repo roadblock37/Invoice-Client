@@ -15,9 +15,6 @@ const InvoiceSlice = createSlice({
     setEditInvoice: (state, { payload }) => {
       return { ...state, isEditing: true, ...payload };
     },
-    viewInvoice: ({ payload }) => {
-      return { ...payload };
-    },
   },
 });
 
