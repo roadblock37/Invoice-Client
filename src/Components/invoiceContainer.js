@@ -4,6 +4,7 @@ import { useGetInvoicesQuery } from "../Features/API/apiSlice";
 import Empty from "./empty";
 
 const InvoiceContainer = () => {
+  // TODO use loader for fetching data
   const {
     data: invoices,
     isLoading,

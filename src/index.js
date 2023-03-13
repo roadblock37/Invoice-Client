@@ -5,20 +5,20 @@ import "./index.css";
 import { store } from "./store";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SharedLayout from "./Pages/sharedLayout";
+import SharedLayout, {loader as rootLoader} from "./Pages/sharedLayout";
 import { AllInvoices, ViewInvoice } from "./Pages";
 import App from "./App";
-import { Empty } from "./Components";
+import { apiSlice } from "./Features/API/apiSlice";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <SharedLayout />,
+    loader: rootLoader,
     children: [
       {
         path: "/invoices",
         element: <AllInvoices />,
-        errorElement: <Empty />,
       },
       
       {
