@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
-import { Navbar } from "./../Components";
 import { useSelector } from "react-redux";
+import { Navbar } from "../Components";
 
 const SharedLayout = () => {
   const themeState = useSelector((state) => state.allInvoices.theme);

@@ -1,5 +1,6 @@
 import { ReactComponent as LeftArrow } from "../assets/icon-arrow-left.svg";
 import moment from "moment";
+import { Link } from "react-router-dom";
 const InvoiceDetail = ({
   invoiceID,
   createdAt,
@@ -19,9 +20,11 @@ const InvoiceDetail = ({
   return (
     <section className="view-container">
       {/*button to go back to main invoice page */}
+      <Link to="/invoices">
       <button>
         <LeftArrow /> Go back
       </button>
+      </Link>
 
       {/*
       status container holding the invoice status

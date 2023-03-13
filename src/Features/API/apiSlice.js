@@ -1,7 +1,6 @@
 import {
   createApi,
   fetchBaseQuery,
-  getchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
@@ -9,7 +8,7 @@ export const apiSlice = createApi({
   tagTypes: ["Post"],
   endpoints: (builder) => ({
     getInvoices: builder.query({
-      query: () => "/invoices",
+      query: () => '/invoices',
     }),
     createInvoice: builder.mutation({
       query: (payload) => ({
