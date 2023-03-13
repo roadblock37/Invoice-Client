@@ -2,7 +2,6 @@ import Invoice from "./invoice";
 import { Link } from "react-router-dom";
 import { useGetInvoicesQuery } from "../Features/API/apiSlice";
 import Empty from "./empty";
-import { Link } from "react-router-dom";
 
 const InvoiceContainer = () => {
   const {
