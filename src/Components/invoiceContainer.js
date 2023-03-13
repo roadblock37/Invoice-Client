@@ -1,4 +1,5 @@
 import Invoice from "./invoice";
+import { Link } from "react-router-dom";
 import { useGetInvoicesQuery } from "../Features/API/apiSlice";
 import Empty from "./empty";
 
@@ -23,7 +24,13 @@ const InvoiceContainer = () => {
   return (
     <section className="invoice-container">
       {invoices.allInvoices.map((invoice) => {
-        return <Invoice key={invoice._id} {...invoice} />;
+        return (
+          <div key={invoice._id}>
+          <Link to={`/invoices/${invoice._id}`}>
+          <Invoice  {...invoice} />
+          </Link>
+          </div>
+          );
       })}
     </section>
   );
