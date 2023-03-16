@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     loader: rootLoader,
     children: [
       {
-        path: "/invoices",
+        index: true,
         element: <AllInvoices />,
       },
       
