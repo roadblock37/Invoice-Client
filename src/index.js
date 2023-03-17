@@ -5,8 +5,9 @@ import "./index.css";
 import { store } from "./store";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SharedLayout, {loader as rootLoader} from "./Pages/sharedLayout";
+import SharedLayout from "./Pages/sharedLayout";
 import { AllInvoices, ViewInvoice } from "./Pages";
+import { loader as rootLoader } from "./Components/invoiceContainer";
 import App from "./App";
 import { apiSlice } from "./Features/API/apiSlice";
 
@@ -14,20 +15,34 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <SharedLayout />,
-    loader: rootLoader,
     children: [
       {
         index: true,
+        loader: async () => {
+          const dataFetch = store.dispatch(apiSlice.endpoints.getInvoices.initiate());
+      try {
+        const response = await dataFetch.unwrap();
+        
+        // console.log("invoice loader is working!");
+        // console.log(response);
+        return {response};
+      } catch (error) {
+        // possibly add redirect if needed later
+        console.log(error);
+      }
+      finally {
+        dataFetch.unsubscribe();
+      }
+        },
         element: <AllInvoices />,
       },
-      
+
       {
         path: "invoices/:id",
         element: <ViewInvoice />,
       },
     ],
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

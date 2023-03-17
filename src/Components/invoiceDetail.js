@@ -20,7 +20,7 @@ const InvoiceDetail = ({
   return (
     <section className="view-container">
       {/*button to go back to main invoice page */}
-      <Link to="/invoices">
+      <Link to="/">
       <button>
         <LeftArrow /> Go back
       </button>
