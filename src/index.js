@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         
         // console.log("invoice loader is working!");
         // console.log(response);
-        return {response};
+        return response;
       } catch (error) {
         // possibly add redirect if needed later
         console.log(error);
