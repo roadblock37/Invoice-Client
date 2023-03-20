@@ -17,35 +17,38 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: async () => {
-          const dataFetch = store.dispatch(apiSlice.endpoints.getInvoices.initiate());
-      try {
-        const response = await dataFetch.unwrap();      
-        return response;
-      } catch (error) {
-        // possibly add redirect if needed later
-        console.log(error);
-      }
-      finally {
-        dataFetch.unsubscribe();
-      }
+          const dataFetch = store.dispatch(
+            apiSlice.endpoints.getInvoices.initiate()
+          );
+          try {
+            const response = await dataFetch.unwrap();
+            return response;
+          } catch (error) {
+            // possibly add redirect if needed later
+            console.log(error);
+          } finally {
+            dataFetch.unsubscribe();
+          }
         },
         element: <AllInvoices />,
       },
 
       {
         path: "invoices/:id",
-        loader: async ({params}) => {
-          const getInvoice = store.dispatch(apiSlice.endpoints.getInvoiceById.initiate());
-          try {
-            const response = await getInvoice.unwrap();
-            return response;
-          } catch (error) {
-            console.log(error);
-          }
-          finally{
-            getInvoice.unsubscribe();
-          }
-        },
+        // loader: async (params) => {
+        //   const getInvoice = store.dispatch(
+        //     apiSlice.endpoints.getInvoiceById.initiate()
+        //   );
+        //   try {
+        //     const response = await getInvoice.unwrap();
+        //     console.log(response);
+        //     return response;
+        //   } catch (error) {
+        //     console.log(error);
+        //   } finally {
+        //     getInvoice.unsubscribe();
+        //   }
+        // },
         element: <ViewInvoice />,
       },
     ],

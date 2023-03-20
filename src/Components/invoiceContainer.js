@@ -21,7 +21,7 @@ import { apiSlice, useGetInvoicesQuery } from "../Features/API/apiSlice";
 const InvoiceContainer = () => {
   // TODO use loader for fetching data
   const loaderData = useLoaderData();
-  console.log(loaderData.allInvoices.length);
+  // console.log(loaderData.allInvoices.length);
 
   if (loaderData.allInvoices.isLoading) {
     return <h1>Loading...</h1>;
