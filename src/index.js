@@ -7,8 +7,6 @@ import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SharedLayout from "./Pages/sharedLayout";
 import { AllInvoices, ViewInvoice } from "./Pages";
-import { loader as rootLoader } from "./Components/invoiceContainer";
-import App from "./App";
 import { apiSlice } from "./Features/API/apiSlice";
 
 const router = createBrowserRouter([
@@ -21,10 +19,7 @@ const router = createBrowserRouter([
         loader: async () => {
           const dataFetch = store.dispatch(apiSlice.endpoints.getInvoices.initiate());
       try {
-        const response = await dataFetch.unwrap();
-        
-        // console.log("invoice loader is working!");
-        // console.log(response);
+        const response = await dataFetch.unwrap();      
         return response;
       } catch (error) {
         // possibly add redirect if needed later
@@ -39,6 +34,18 @@ const router = createBrowserRouter([
 
       {
         path: "invoices/:id",
+        loader: async ({params}) => {
+          const getInvoice = store.dispatch(apiSlice.endpoints.getInvoiceById.initiate());
+          try {
+            const response = await getInvoice.unwrap();
+            return response;
+          } catch (error) {
+            console.log(error);
+          }
+          finally{
+            getInvoice.unsubscribe();
+          }
+        },
         element: <ViewInvoice />,
       },
     ],

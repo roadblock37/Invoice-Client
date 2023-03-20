@@ -21,10 +21,15 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Post"],
     }),
+    getInvoiceById: builder.query({
+      query: (id) => ({
+        url: `/invoices/${id}`
+      })
+    }),
   }),
 });
 
-export const { useGetInvoicesQuery, useCreateInvoiceMutation } = apiSlice;
+export const { useGetInvoicesQuery, useGetInvoiceByIdQuery, useCreateInvoiceMutation } = apiSlice;
 
 // import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // export const apiSlice = createApi({

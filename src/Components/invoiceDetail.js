@@ -1,6 +1,6 @@
 import { ReactComponent as LeftArrow } from "../assets/icon-arrow-left.svg";
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 const InvoiceDetail = ({
   invoiceID,
   createdAt,
@@ -15,6 +15,7 @@ const InvoiceDetail = ({
   items,
   total,
 }) => {
+  const response = useLoaderData();
   const dueDate = moment(paymentDue).format("Do MMM YYYY");
   const createdDate = moment(createdAt).format("Do MMM YYYY");
   return (
