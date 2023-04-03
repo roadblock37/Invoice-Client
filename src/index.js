@@ -8,6 +8,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SharedLayout from "./Pages/sharedLayout";
 import { AllInvoices, ViewInvoice } from "./Pages";
 import { apiSlice } from "./Features/API/apiSlice";
+import axios from 'axios';
+import customFetch from "./Utils/axios";
+
 
 const router = createBrowserRouter([
   {
@@ -29,23 +32,34 @@ const router = createBrowserRouter([
         dataFetch.unsubscribe();
       }
         },
+        // action: ,
         element: <AllInvoices />,
       },
 
       {
         path: "invoices/:id",
         loader: async ({params}) => {
-          const getInvoice = store.dispatch(apiSlice.endpoints.getInvoiceById.initiate());
           try {
-            const response = await getInvoice.unwrap();
-            return response;
+            const fetchData = await customFetch(`/invoices/${params.id}`);
+            console.log(fetchData.data);
+            return fetchData;
+            
           } catch (error) {
             console.log(error);
           }
-          finally{
-            getInvoice.unsubscribe();
-          }
         },
+        // loader: async ({params}) => {
+        //   const getInvoice = store.dispatch(apiSlice.endpoints.getInvoiceById.initiate());
+        //   try {
+        //     const response = await getInvoice(params.id).unwrap();
+        //     return response;
+        //   } catch (error) {
+        //     console.log(error);
+        //   }
+        //   finally{
+        //     getInvoice.unsubscribe();
+        //   }
+        // },
         element: <ViewInvoice />,
       },
     ],
