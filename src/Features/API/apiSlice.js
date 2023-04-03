@@ -1,14 +1,11 @@
-import {
-  createApi,
-  fetchBaseQuery,
-} from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
   tagTypes: ["Post"],
   endpoints: (builder) => ({
     getInvoices: builder.query({
-      query: () => '/invoices',
+      query: () => "/invoices",
     }),
     createInvoice: builder.mutation({
       query: (payload) => ({
@@ -22,14 +19,16 @@ export const apiSlice = createApi({
       invalidatesTags: ["Post"],
     }),
     getInvoiceById: builder.query({
-      query: (id) => ({
-        url: `/invoices/${id}`
-      })
+      query: (invoiceId) => `/invoices/${invoiceId}`,
     }),
   }),
 });
 
-export const { useGetInvoicesQuery, useGetInvoiceByIdQuery, useCreateInvoiceMutation } = apiSlice;
+export const {
+  useGetInvoicesQuery,
+  useGetInvoiceByIdQuery,
+  useCreateInvoiceMutation,
+} = apiSlice;
 
 // import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // export const apiSlice = createApi({

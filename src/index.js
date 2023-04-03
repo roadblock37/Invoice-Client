@@ -20,17 +20,18 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: async () => {
-          const dataFetch = store.dispatch(apiSlice.endpoints.getInvoices.initiate());
-      try {
-        const response = await dataFetch.unwrap();      
-        return response;
-      } catch (error) {
-        // possibly add redirect if needed later
-        console.log(error);
-      }
-      finally {
-        dataFetch.unsubscribe();
-      }
+          const dataFetch = store.dispatch(
+            apiSlice.endpoints.getInvoices.initiate()
+          );
+          try {
+            const response = await dataFetch.unwrap();
+            return response;
+          } catch (error) {
+            // possibly add redirect if needed later
+            console.log(error);
+          } finally {
+            dataFetch.unsubscribe();
+          }
         },
         // action: ,
         element: <AllInvoices />,
