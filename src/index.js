@@ -42,7 +42,8 @@ const router = createBrowserRouter([
         loader: async ({params}) => {
           try {
             const fetchData = await customFetch(`/invoices/${params.id}`);
-            console.log(fetchData.data);
+            // const response  = await fetchData;
+            console.log(fetchData)
             return fetchData;
             
           } catch (error) {
