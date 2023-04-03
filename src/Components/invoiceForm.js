@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { FormSelectField, FormTextField } from "./FormComponents";
 
@@ -54,9 +54,50 @@ const InvoiceForm = () => {
             .max(50, "Must be 50 characters or less")
             .required("Required"),
           invoiceDate: Yup.date().required("Required"),
+          // TODO change to .oneOf so there are only 3 options
           paymentTerm: Yup.string().required("Required"),
         })}
-      ></Formik>
+      >
+      <Form>
+        <FormTextField
+          label=""
+          name=""
+          type=""
+          placeHolder=""
+        />
+        <FormTextField
+          label=""
+          name=""
+          type=""
+          placeHolder=""
+        />
+        <FormTextField
+          label=""
+          name=""
+          type=""
+          placeHolder=""
+        />
+        <FormTextField
+          label=""
+          name=""
+          type=""
+          placeHolder=""
+        />
+        <FormTextField
+          label=""
+          name=""
+          type=""
+          placeHolder=""
+        />
+        <FormTextField
+          label=""
+          name=""
+          type=""
+          placeHolder=""
+        />
+        
+      </Form>
+      </Formik>
     </>
   );
 };
