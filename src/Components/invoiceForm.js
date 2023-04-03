@@ -1,65 +1,60 @@
 import React from "react";
-import { useFormik } from "formik";
-import * as yup from "yup";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const InvoiceForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      billAddress: "",
-      billCity: "",
-      billCountry: "",
-      clientName: "",
-      clientEmail: "",
-      clientAddress: "",
-      clientCity: "",
-      clientPostal: "",
-      clientCountry: "",
-      description: "",
-      invoiceDate: "",
-      paymentTerm: "",
-    },
-    validationSchema: {
-      billAddress: yup
-        .string()
-        .max(50, "Must be 50 characters or less")
-        .required("Required"),
-      billCity: yup
-        .string()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
-      billCountry: yup
-        .string()
-        .max(10, "Must be 10characters or less")
-        .required("Required"),
-      clientName: yup
-        .string()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
-      clientEmail: yup.string().email("Invalid Email").required("Required"),
-      clientAddress: yup
-        .string()
-        .max(50, "Must be 50 characters or less")
-        .required("Required"),
-      clientCity: yup
-        .string()
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
-      clientPostal: yup
-        .number()
-        .max(5, "Must be 5 characters or less")
-        .required("Required"),
-      clientCountry: yup
-        .string()
-        .max(10, "Must be 10 characters or less")
-        .required("Required"),
-      description: yup
-        .string()
-        .max(50, "Must be 50 characters or less")
-        .required("Required"),
-      invoiceDate: yup.date().required("Required"),
-      paymentTerm: yup.string().required("Required"),
-    },
-  });
+  return (
+    <>
+      <Formik
+        initialValues={{
+          billAddress: "",
+          billCity: "",
+          billCountry: "",
+          clientName: "",
+          clientEmail: "",
+          clientAddress: "",
+          clientCity: "",
+          clientPostal: "",
+          clientCountry: "",
+          description: "",
+          invoiceDate: "",
+          paymentTerm: "",
+        }}
+        validationSchema={Yup.object({
+          billAddress: Yup.string()
+            .max(50, "Must be 50 characters or less")
+            .required("Required"),
+          billCity: Yup.string()
+            .max(20, "Must be 20 characters or less")
+            .required("Required"),
+          billCountry: Yup.string()
+            .max(10, "Must be 10characters or less")
+            .required("Required"),
+          clientName: Yup.string()
+            .max(20, "Must be 20 characters or less")
+            .required("Required"),
+          clientEmail: Yup.string().email("Invalid Email").required("Required"),
+          clientAddress: Yup.string()
+            .max(50, "Must be 50 characters or less")
+            .required("Required"),
+          clientCity: Yup.string()
+            .max(20, "Must be 20 characters or less")
+            .required("Required"),
+          clientPostal: Yup.number()
+            .max(5, "Must be 5 characters or less")
+            .required("Required"),
+          clientCountry: Yup.string()
+            .max(10, "Must be 10 characters or less")
+            .required("Required"),
+          description: Yup.string()
+            .max(50, "Must be 50 characters or less")
+            .required("Required"),
+          invoiceDate: Yup.date().required("Required"),
+          paymentTerm: Yup.string().required("Required"),
+        })}
+      ></Formik>
+    </>
+  );
 };
 
 export default InvoiceForm;

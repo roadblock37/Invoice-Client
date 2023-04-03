@@ -2,7 +2,7 @@ import { ReactComponent as LeftArrow } from "../assets/icon-arrow-left.svg";
 import moment from "moment";
 import { Link, useLoaderData } from "react-router-dom";
 import { useGetInvoiceByIdQuery } from "../Features/API/apiSlice";
-const InvoiceDetail = () =>
+const InvoiceDetail = ({_id}) =>
   // {
   // invoiceID,
   // createdAt,

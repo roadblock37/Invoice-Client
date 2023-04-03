@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { InvoiceForm } from "../Components";
 import { setEditInvoice } from "../Features/Invoice/invoiceSlice";
 
 const AddInvoice = () => {
@@ -6,7 +7,7 @@ const AddInvoice = () => {
     useSelector((store) => store.invoice);
   const dispatch = useDispatch();
 
-  return <h1>Add Invoice</h1>;
+  return <InvoiceForm/>;
 };
 
 export default AddInvoice;
