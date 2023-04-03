@@ -60,40 +60,64 @@ const InvoiceForm = () => {
       >
       <Form>
         <FormTextField
-          label=""
-          name=""
-          type=""
-          placeHolder=""
+          label="Street Address"
+          name="streetAddress"
+          type="text"
+          placeHolder="200 W Wacker"
         />
         <FormTextField
-          label=""
-          name=""
-          type=""
-          placeHolder=""
+          label="City"
+          name="city"
+          type="text"
+          placeHolder="chicago"
         />
         <FormTextField
-          label=""
-          name=""
-          type=""
-          placeHolder=""
+          label="Post Code"
+          name="postalCode"
+          type="text"
+          placeHolder="70291"
         />
         <FormTextField
-          label=""
-          name=""
-          type=""
-          placeHolder=""
+          label="Country"
+          name="country"
+          type="text"
+          placeHolder="USA"
         />
         <FormTextField
-          label=""
-          name=""
-          type=""
-          placeHolder=""
+          label="Client's Name"
+          name="clientName"
+          type="text"
+          placeHolder="John doe"
         />
         <FormTextField
-          label=""
-          name=""
-          type=""
-          placeHolder=""
+          label="Client's Email"
+          name="clientEmail"
+          type="email"
+          placeHolder="john@gmail.com"
+        />
+        <FormTextField
+          label="Street Address"
+          name="clientAddress"
+          type="text"
+          placeHolder="425 Fullerton Rd."
+        />
+        <FormTextField
+          label="City"
+          name="clientCity"
+          type="text"
+          placeHolder="Chicago"
+        />
+        <FormTextField
+          label="Post Code"
+          name="clientPostalCode"
+          type="text"
+          placeHolder="42156"
+        />
+        <FormTextField
+          label="Country"
+          name="clientCountry"
+          type="text"
+          placeHolder="USA"
         />
         
       </Form>
