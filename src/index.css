@@ -67,6 +67,15 @@ universal styling
   color: var(--primaryText);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 
 
 /* 
@@ -122,9 +131,33 @@ Navbar
 
 /* 
 ============
+Back Button
+============
+*/
+
+.backBtn {
+  border-style: none;
+  background-color: var(--mainBackground);
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.backBtn svg {
+  margin-right: 1rem;
+}
+
+/* .backBtn:hover {
+  cursor: pointer;
+} */
+
+
+/* 
+============
 Invoice
 ============
 */
+
+/* TODO CSS cleanup/ combine universal stylings */
 
 /* invoice container for all invoices */
 .invoice-container {
@@ -186,6 +219,8 @@ View invoice component
 /* set background color for invoice detail sections */
 .status-container, .invoice-info-container {
 background-color: var(--tileBackground);
+padding: 2rem;
+border-radius: var(--invoiceRadius);
 
 }
 
@@ -193,20 +228,23 @@ background-color: var(--tileBackground);
 .status-container {
   display: flex;
 justify-content: space-between;
-padding: 2rem;
+margin-bottom: 1rem;
 }
 
 /* container holding invoice information */
 .invoice-info-container {
-  padding: 2rem;
 }
 
+/* set p text color for all p's in invoice detail component */
 .invoice-info-container p, .address, .status-container {
   color: var(--secondaryText);
 }
 
+/* container for both client and sender address */
 .address {
 }
+
+
 /* container holding edit delete and change status buttons */
 .button-container {
   display: flex;

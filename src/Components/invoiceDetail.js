@@ -13,7 +13,7 @@ const InvoiceDetail = () =>
       <section className="view-container">
         {/*button to go back to main invoice page */}
         <Link to="/">
-          <button>
+          <button className="backBtn">
             <LeftArrow /> Go back
           </button>
         </Link>
@@ -29,6 +29,8 @@ const InvoiceDetail = () =>
 
         {/*container holding all invoice information */}
         <section className="invoice-info-container">
+        <div className="flex-column">
+
           <h4>{`# ${fetchData.data.invoice.invoiceID}`}</h4>
           <p>{fetchData.data.invoice.description}</p>
           {/* map over sending address */}
@@ -43,6 +45,7 @@ const InvoiceDetail = () =>
               </article>
             );
           })}
+        </div>
 
           <p>Invoice Date</p>
           <h4>{createdDate}</h4>
