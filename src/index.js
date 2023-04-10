@@ -8,7 +8,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SharedLayout from "./Pages/sharedLayout";
 import { AllInvoices, ViewInvoice } from "./Pages";
 import { apiSlice } from "./Features/API/apiSlice";
-import axios from 'axios';
 import customFetch from "./Utils/axios";
 
 
@@ -42,9 +41,8 @@ const router = createBrowserRouter([
         loader: async ({params}) => {
           try {
             const fetchData = await customFetch(`/invoices/${params.id}`);
-            // const response  = await fetchData;
-            console.log(fetchData)
-            return fetchData;
+            // console.log(fetchData)
+            return {fetchData};
             
           } catch (error) {
             console.log(error);
