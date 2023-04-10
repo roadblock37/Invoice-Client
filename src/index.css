@@ -64,6 +64,7 @@ universal styling
 
 .App {
   background-color: var(--mainBackground);
+  color: var(--primaryText);
 }
 
 
@@ -181,6 +182,8 @@ View invoice component
   padding: 2rem;
   background-color: var(--mainBackground);
 }
+
+/* set background color for invoice detail sections */
 .status-container, .invoice-info-container {
 background-color: var(--tileBackground);
 
@@ -198,6 +201,12 @@ padding: 2rem;
   padding: 2rem;
 }
 
+.invoice-info-container p, .address, .status-container {
+  color: var(--secondaryText);
+}
+
+.address {
+}
 /* container holding edit delete and change status buttons */
 .button-container {
   display: flex;

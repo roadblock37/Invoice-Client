@@ -35,7 +35,7 @@ const InvoiceDetail = () =>
           {fetchData.data.invoice.senderAddress.map((item) => {
             const {street, city, postCode, country, _id} = item;
             return (
-              <article key={_id} className="Address">
+              <article key={_id} className="address">
                 <p>{street}</p>
                 <p>{city}</p>
                 <p>{postCode}</p>
@@ -58,7 +58,7 @@ const InvoiceDetail = () =>
           {fetchData.data.invoice.clientAddress.map((item) => {
             const {street, city, postCode, country, _id} = item;
             return (
-              <article key={_id} className="Address">
+              <article key={_id} className="address">
                 <p>{street}</p>
                 <p>{city}</p>
                 <p>{postCode}</p>
