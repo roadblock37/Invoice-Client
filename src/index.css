@@ -74,7 +74,18 @@ button:hover {
 .flex-column {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
+
+.line-height {
+  line-height: 0.25rem;
+}
+
+.med-line-height {
+  line-height: 1rem;
+}
+
+
 
 
 
@@ -240,6 +251,15 @@ margin-bottom: 1rem;
 
 /* container for both client and sender address */
 .address {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* section in detail holding client address, due date and invoice created date */
+.client-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 
