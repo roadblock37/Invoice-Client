@@ -1,12 +1,9 @@
 import { ReactComponent as LeftArrow } from "../assets/icon-arrow-left.svg";
 import moment from "moment";
 import { Link, useLoaderData } from "react-router-dom";
-import { useGetInvoiceByIdQuery } from "../Features/API/apiSlice";
 const InvoiceDetail = () =>
-  {
-    
+  {    
     const {fetchData} = useLoaderData();
-    console.log(fetchData.data.invoice);
     const dueDate = moment(fetchData.data.invoice.paymentDue).format("Do MMM YYYY");
     const createdDate = moment(fetchData.data.invoice.createdAt).format("Do MMM YYYY");
     return (
@@ -73,7 +70,7 @@ const InvoiceDetail = () =>
           {/* <p>{fetchData.data.invoice.clientAddress}</p> */}
 
           <p>Sent to</p>
-          <h5>{fetchData.data.invoice.clientEmail}</h5>
+          <h4>{fetchData.data.invoice.clientEmail}</h4>
 
           {/*container holding items added to invoice
             TODO create item container component and item component

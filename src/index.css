@@ -140,15 +140,12 @@ Back Button
   background-color: var(--mainBackground);
   font-weight: bold;
   margin-bottom: 2rem;
+  color: var(--primaryText);
 }
 
 .backBtn svg {
   margin-right: 1rem;
 }
-
-/* .backBtn:hover {
-  cursor: pointer;
-} */
 
 
 /* 
@@ -232,7 +229,8 @@ margin-bottom: 1rem;
 }
 
 /* container holding invoice information */
-.invoice-info-container {
+.invoice-info-container h4{
+  color: var(--primaryText);
 }
 
 /* set p text color for all p's in invoice detail component */
