@@ -13,7 +13,7 @@ color variables
   
   #9277FF
   
-  #252945
+  
   
   
   
@@ -31,6 +31,7 @@ color variables
   --inputBorder: #7E88C3;
   --inputRadius: 0.25rem;
   --invoiceRadius: 0.5rem;
+  --itemBackground: #F9FAFE;
 
 
 
@@ -51,6 +52,7 @@ color variables
   --error: #EC5757;
   --inputRadius: 0.25rem;
   --invoiceRadius: 0.5rem;
+  --itemBackground: #252945;
 
 
 
@@ -260,6 +262,11 @@ margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+}
+
+/* section containing invoice items */
+.item-container {
+  background-color: var(--itemBackground);
 }
 
 
