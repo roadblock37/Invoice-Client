@@ -9,7 +9,7 @@ import SharedLayout from "./Pages/sharedLayout";
 import { AllInvoices, ViewInvoice } from "./Pages";
 import { apiSlice } from "./Features/API/apiSlice";
 import customFetch from "./Utils/axios";
-
+import { InvoiceForm } from "./Components";
 
 const router = createBrowserRouter([
   {
@@ -38,16 +38,28 @@ const router = createBrowserRouter([
 
       {
         path: "invoices/:id",
-        loader: async ({params}) => {
+        loader: async ({ params }) => {
           try {
             const fetchData = await customFetch(`/invoices/${params.id}`);
-            return {fetchData};
-            
+            return { fetchData };
           } catch (error) {
             console.log(error);
           }
         },
         element: <ViewInvoice />,
+      },
+      {
+        path: "invoices/:id/edit",
+        loader: async ({ params }) => {
+          try {
+            const fetchData = await customFetch(`/invoices/${params.id}`);
+            return { fetchData };
+          } catch (error) {
+            console.log(error);
+          }
+        },
+        element: <InvoiceForm />,
+
       },
     ],
   },
